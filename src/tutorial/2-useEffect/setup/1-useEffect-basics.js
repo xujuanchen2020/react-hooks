@@ -3,7 +3,22 @@ import React, { useState, useEffect } from 'react';
 // cleanup function
 // second parameter
 const UseEffectBasics = () => {
-  return <h2>useEffect Basics</h2>;
+  const [text, setText] = useState(0);
+  const handleClick = () => {
+    setText(text + 1);
+  }
+
+  useEffect(() => {
+    if(text > 3){
+      document.title = `new value (${text})`;
+    }
+  })
+  return (
+    <>
+      <h1>{text}</h1>
+      <button className='btn'onClick={handleClick}>Click Me</button>
+    </>
+  );
 };
 
 export default UseEffectBasics;
